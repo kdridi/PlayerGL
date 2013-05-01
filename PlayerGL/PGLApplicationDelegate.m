@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "PGLApplicationDelegate.h"
 
-@implementation AppDelegate
+@implementation PGLApplicationDelegate
 
 /*/
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification

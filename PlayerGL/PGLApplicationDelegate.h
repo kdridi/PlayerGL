@@ -1,5 +1,5 @@
 //
-//  PLOpenGLView.h
+//  AppDelegate.h
 //  PlayerGL
 //
 //  Created by Karim DRIDI on 30/04/13.
@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PLOpenGLView : NSOpenGLView {
-    BOOL _initNSOpenGLContext;
-}
+@interface PGLApplicationDelegate : NSObject <NSApplicationDelegate>
+
+@property (assign) IBOutlet NSWindow *window;
 
 @end

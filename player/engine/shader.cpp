@@ -1,37 +1,35 @@
 //
-//  Player.cpp
+//  shader.cpp
 //  PlayerGL
 //
-//  Created by Karim DRIDI on 30/04/13.
+//  Created by Karim DRIDI on 02/05/13.
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#include "player.h"
+#include "shader.h"
 
-#include <boost/assert.hpp>
+#include <player/commons/file.h>
 
-player::player()
+player::engine::shader::shader(const char* n)
 : program(true)
+, name(n)
 {
     
 }
 
-player::~player()
+player::engine::shader::~shader()
 {
     
 }
 
-player* player::instance()
+void player::engine::shader::initialize(void)
 {
-    static player instance;
-    return &instance;
-}
-
-void player::prepareOpenGL(void)
-{
-    program.add(GL_VERTEX_SHADER, player::instance()->readFile("shader_player.vs"));
-    program.add(GL_FRAGMENT_SHADER, player::instance()->readFile("shader_player.fs"));
-
+    char filename[1024];
+    sprintf(filename, "shaders/%s", name.c_str());
+    
+    program.add(GL_VERTEX_SHADER, player::commons::file::read(filename, "vs"));
+    program.add(GL_FRAGMENT_SHADER, player::commons::file::read(filename, "fs"));
+    
     const GLfloat data[] = { - 1.0, - 1.0, 1.0, - 1.0, - 1.0, 1.0, 1.0, - 1.0, 1.0, 1.0, - 1.0, 1.0 };
     
     GLuint buffer;
@@ -43,28 +41,32 @@ void player::prepareOpenGL(void)
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
     glVertexAttribPointer( position, 2, GL_FLOAT, false, 0, 0 );
     glEnableVertexAttribArray( position );
-
-    program.use();
     
-    t.reset();
+    program.use();
 }
 
-void player::reshape(GLfloat width, GLfloat height)
+void player::engine::shader::reshape(GLfloat width, GLfloat height)
 {
     glViewport(0, 0, width, height);
     glUniform2f( program.getUniformLocation("resolution"), width, height);
 }
 
-void player::update(void)
+void player::engine::shader::update(float dt)
 {
-    glUniform1f( program.getUniformLocation("time"), t.get());
+    static float time = 0.f;
+    time += dt;
     
-    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-    glDrawArrays( GL_TRIANGLES, 0, 6 );
-
+    glUniform1f( program.getUniformLocation("time"), time);
+    
 }
 
-void player::mouse(GLfloat x, GLfloat y)
+void player::engine::shader::draw(void)
+{
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+    glDrawArrays( GL_TRIANGLES, 0, 6 );
+}
+
+void player::engine::shader::mouse(GLfloat x, GLfloat y)
 {
     glUniform2f( program.getUniformLocation("mouse"), x, y);
 }
