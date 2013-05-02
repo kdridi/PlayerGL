@@ -10,5 +10,5 @@
 #include <player/engine/shader.h>
 
 std::unique_ptr<player::commons::engine> player::factory::create() {
-    return std::move(std::unique_ptr<player::commons::engine>(new player::engine::shader("brick")));
+    return std::move(std::unique_ptr<player::commons::engine>(new player::engine::shader("8418.1", true)));
 }

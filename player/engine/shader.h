@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#ifndef __PlayerGL__shader__
-#define __PlayerGL__shader__
+#ifndef __player_engine_shader__
+#define __player_engine_shader__
 
 #include <player/commons/engine.h>
 #include <player/commons/shader/program.h>
@@ -17,8 +17,9 @@ namespace player {
         class shader : public player::commons::engine {
             player::commons::shader::program program;
             const std::string name;
+            const bool remote;
         public:
-            shader(const char* name);
+            shader(const char* name, bool remote = false);
             virtual ~shader();
             virtual void initialize(void);
             virtual void reshape(float width, float height);
@@ -29,4 +30,4 @@ namespace player {
     }
 }
 
-#endif /* defined(__PlayerGL__shader__) */
+#endif /* defined(__player_engine_shader__) */

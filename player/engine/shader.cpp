@@ -6,13 +6,15 @@
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#include "shader.h"
+#include <player/engine/shader.h>
 
 #include <player/commons/file.h>
+#include <player/commons/http.h>
 
-player::engine::shader::shader(const char* n)
+player::engine::shader::shader(const char* n, bool r)
 : program(true)
 , name(n)
+, remote(r)
 {
     
 }
@@ -25,11 +27,21 @@ player::engine::shader::~shader()
 void player::engine::shader::initialize(void)
 {
     char filename[1024];
-    sprintf(filename, "shaders/%s", name.c_str());
-    
-    program.add(GL_VERTEX_SHADER, player::commons::file::read(filename, "vs"));
-    program.add(GL_FRAGMENT_SHADER, player::commons::file::read(filename, "fs"));
-    
+
+    if (remote) {
+        sprintf(filename, "http://glsl.heroku.com/e#%s", name.c_str());
+        program.add(GL_VERTEX_SHADER, player::commons::http::readXMLById(filename, "vertexShader"));
+
+        sprintf(filename, "http://glsl.heroku.com/item/%s", name.c_str());
+        program.add(GL_FRAGMENT_SHADER, player::commons::http::readJSONByKey(filename, "code"));
+    } else {
+        
+
+        sprintf(filename, "shaders/%s", name.c_str());
+        program.add(GL_VERTEX_SHADER, player::commons::file::read(filename, "vs"));
+        program.add(GL_FRAGMENT_SHADER, player::commons::file::read(filename, "fs"));
+    }
+
     const GLfloat data[] = { - 1.0, - 1.0, 1.0, - 1.0, - 1.0, 1.0, 1.0, - 1.0, 1.0, 1.0, - 1.0, 1.0 };
     
     GLuint buffer;

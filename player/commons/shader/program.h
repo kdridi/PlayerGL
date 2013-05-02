@@ -6,9 +6,8 @@
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#ifndef __PlayerGL__program__
-#define __PlayerGL__program__
-
+#ifndef __player_commons_shader_program__
+#define __player_commons_shader_program__
 
 #include <OpenGL/gl.h>
 
@@ -183,4 +182,4 @@ namespace player {
     }
 }
 
-#endif /* defined(__PlayerGL__program__) */
+#endif /* defined(__player_commons_shader_program__) */

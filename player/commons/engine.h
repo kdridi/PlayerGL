@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#ifndef __PlayerGL__engine__
-#define __PlayerGL__engine__
+#ifndef __player_commons_engine__
+#define __player_commons_engine__
 
 namespace player {
     namespace commons {
@@ -23,4 +23,4 @@ namespace player {
     }
 }
 
-#endif /* defined(__PlayerGL__engine__) */
+#endif /* defined(__player_commons_engine__) */

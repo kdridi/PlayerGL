@@ -6,4 +6,4 @@
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#include "program.h"
+#include <player/commons/shader/program.h>

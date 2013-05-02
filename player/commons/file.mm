@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#include "file.h"
+#include <player/commons/file.h>
 
 std::string player::commons::file::read(const char* name, const char* extension)
 {

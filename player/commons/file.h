@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Karim DRIDI. All rights reserved.
 //
 
-#ifndef __PlayerGL__file__
-#define __PlayerGL__file__
+#ifndef __player_commons_file__
+#define __player_commons_file__
 
 #include <string>
 
@@ -20,4 +20,4 @@ namespace player {
     }
 }
 
-#endif /* defined(__PlayerGL__file__) */
+#endif /* defined(__player_commons_file__) */

@@ -26,6 +26,8 @@
 		0AF613E71730101F00F21296 /* PlayerGLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF613E61730101F00F21296 /* PlayerGLTests.m */; };
 		0AF613F1173010B800F21296 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF613F0173010B800F21296 /* OpenGL.framework */; };
 		0AF613F61730136C00F21296 /* PGLOpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AF613F51730136C00F21296 /* PGLOpenGLView.mm */; };
+		0AF87EA81731E241009598AB /* http.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AF87EA61731E241009598AB /* http.mm */; };
+		0AF87EAA1731E667009598AB /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF87EA91731E667009598AB /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,9 @@
 		0AF613F0173010B800F21296 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		0AF613F41730136C00F21296 /* PGLOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGLOpenGLView.h; sourceTree = "<group>"; };
 		0AF613F51730136C00F21296 /* PGLOpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PGLOpenGLView.mm; sourceTree = "<group>"; };
+		0AF87EA61731E241009598AB /* http.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = http.mm; sourceTree = "<group>"; };
+		0AF87EA71731E241009598AB /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
+		0AF87EA91731E667009598AB /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AF87EAA1731E667009598AB /* libxml2.dylib in Frameworks */,
 				0AF613F1173010B800F21296 /* OpenGL.framework in Frameworks */,
 				0AF613BD1730101E00F21296 /* Cocoa.framework in Frameworks */,
 			);
@@ -115,10 +121,12 @@
 				0AF41E941731DB5B00133665 /* shader */,
 				0AF41E901731DB5B00133665 /* engine.cpp */,
 				0AF41E911731DB5B00133665 /* engine.h */,
-				0AF41E921731DB5B00133665 /* file.h */,
 				0AF41E931731DB5B00133665 /* file.mm */,
+				0AF41E921731DB5B00133665 /* file.h */,
 				0AF41E971731DB5B00133665 /* ticker.cpp */,
 				0AF41E981731DB5B00133665 /* ticker.h */,
+				0AF87EA61731E241009598AB /* http.mm */,
+				0AF87EA71731E241009598AB /* http.h */,
 			);
 			path = commons;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 		0AF613BB1730101E00F21296 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AF87EA91731E667009598AB /* libxml2.dylib */,
 				0AF613F0173010B800F21296 /* OpenGL.framework */,
 				0AF613BC1730101E00F21296 /* Cocoa.framework */,
 				0AF613DA1730101F00F21296 /* SenTestingKit.framework */,
@@ -353,6 +362,7 @@
 				0AF41EA11731DB5B00133665 /* ticker.cpp in Sources */,
 				0AF41EA21731DB5B00133665 /* shader.cpp in Sources */,
 				0AF41EA31731DB5B00133665 /* factory.cpp in Sources */,
+				0AF87EA81731E241009598AB /* http.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,9 +450,14 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					.,
+					/usr/include/libxml2,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-L/usr/local/lib",
+					"-ljson",
+				);
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -476,8 +491,13 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					.,
+					/usr/include/libxml2,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = (
+					"-L/usr/local/lib",
+					"-ljson",
+				);
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
 					"-Wall",
