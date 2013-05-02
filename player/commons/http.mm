@@ -35,14 +35,17 @@ std::string player::commons::http::readJSONByKey(const char* name, const char* k
     
     json_object* object = json_tokener_parse(result.c_str());
     BOOST_ASSERT(object != nullptr);
-
-    json_object* jvalue = json_object_object_get(object, key);
-    BOOST_ASSERT(jvalue != nullptr);
-
-    const char* value = json_object_get_string(jvalue);
-    BOOST_ASSERT(value != nullptr);
-    
-    result = value;
+    {
+        json_object* jvalue = json_object_object_get(object, key);
+        BOOST_ASSERT(jvalue != nullptr);
+        {
+            const char* value = json_object_get_string(jvalue);
+            BOOST_ASSERT(value != nullptr);
+            result = value;
+        }
+        json_object_put(jvalue);
+    }
+    json_object_put(object);
     
     NSLog(@"[%s]", result.c_str());
     return result;
