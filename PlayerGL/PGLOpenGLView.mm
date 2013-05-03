@@ -101,7 +101,7 @@ static std::unique_ptr<player::commons::engine> engine(nullptr);
     {
         _initNSOpenGLContext = NO;
         {
-            GLint interval = 1;
+            GLint interval = 0;
             [context setValues:&interval forParameter:NSOpenGLCPSwapInterval];
         }
         if (true)
@@ -152,7 +152,7 @@ static std::unique_ptr<player::commons::engine> engine(nullptr);
         engine = player::factory::create();
         engine->initialize();
     }];
-    NSTimer* timer = [NSTimer timerWithTimeInterval:1.0f / 120.0f
+    NSTimer* timer = [NSTimer timerWithTimeInterval:1.0f / 1020.0f
                                              target:self
                                            selector:@selector(heartbeat)
                                            userInfo:nil
