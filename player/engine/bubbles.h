@@ -23,7 +23,6 @@ namespace player {
             virtual void reshape(float width, float height);
             virtual void update(float dt);
             virtual void draw(void);
-            void setSize(int size);
         };
     }
 }

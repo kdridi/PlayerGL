@@ -11,6 +11,6 @@
 #include <player/engine/bubbles.h>
 
 std::unique_ptr<player::commons::engine> player::factory::create() {
-//    return std::move(std::unique_ptr<player::commons::engine>(new player::engine::shader("bubbles", false)));
-    return std::move(std::unique_ptr<player::commons::engine>(new player::engine::bubbles()));
+    return std::move(std::unique_ptr<player::commons::engine>(new player::engine::shader("bubbles", false)));
+//    return std::move(std::unique_ptr<player::commons::engine>(new player::engine::bubbles()));
 }

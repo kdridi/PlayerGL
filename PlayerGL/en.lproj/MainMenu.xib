@@ -1293,7 +1293,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 390}, {480, 360}}</string>
+				<string key="NSWindowRect">{{26, 117}, {360, 640}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">PlayerGL</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1306,7 +1306,7 @@
 						<object class="NSCustomView" id="455238843">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">274</int>
-							<string key="NSFrameSize">{480, 360}</string>
+							<string key="NSFrameSize">{360, 640}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
@@ -1314,7 +1314,7 @@
 							<string key="NSClassName">PGLOpenGLView</string>
 						</object>
 					</array>
-					<string key="NSFrameSize">{480, 360}</string>
+					<string key="NSFrameSize">{360, 640}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="455238843"/>
