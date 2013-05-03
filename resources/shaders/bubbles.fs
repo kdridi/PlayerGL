@@ -7,6 +7,7 @@ precision highp float;
 uniform float time;
 uniform vec2 mouse;
 uniform vec2 resolution;
+uniform int size;
 
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
@@ -19,7 +20,7 @@ void main(void) {
 	vec3 color = vec3(0.8 + 0.2 * uv.y);
     
 	// bubbles
-	for (int i = 0; i < 40; i++) {
+	for (int i = 0; i < size; i++) {
 		// bubble seeds
 		float pha = sin(float(i) * 546.13 + 1.0) * 0.5 + 0.5;
 		float siz = pow(sin(float(i) * 651.74 + 5.0) * 0.5 + 0.5, 4.0);

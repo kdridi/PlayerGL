@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AF30F6C1734112600C0112B /* bubbles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AF30F6A1734112600C0112B /* bubbles.cpp */; };
 		0AF41E9E1731DB5B00133665 /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AF41E901731DB5B00133665 /* engine.cpp */; };
 		0AF41E9F1731DB5B00133665 /* file.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AF41E931731DB5B00133665 /* file.mm */; };
 		0AF41EA01731DB5B00133665 /* program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AF41E951731DB5B00133665 /* program.cpp */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AF30F6A1734112600C0112B /* bubbles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bubbles.cpp; sourceTree = "<group>"; };
+		0AF30F6B1734112600C0112B /* bubbles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bubbles.h; sourceTree = "<group>"; };
 		0AF41E901731DB5B00133665 /* engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = engine.cpp; sourceTree = "<group>"; };
 		0AF41E911731DB5B00133665 /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
 		0AF41E921731DB5B00133665 /* file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file.h; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 			children = (
 				0AF41E9A1731DB5B00133665 /* shader.cpp */,
 				0AF41E9B1731DB5B00133665 /* shader.h */,
+				0AF30F6A1734112600C0112B /* bubbles.cpp */,
+				0AF30F6B1734112600C0112B /* bubbles.h */,
 			);
 			path = engine;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				0AF41EA21731DB5B00133665 /* shader.cpp in Sources */,
 				0AF41EA31731DB5B00133665 /* factory.cpp in Sources */,
 				0AF87EA81731E241009598AB /* http.mm in Sources */,
+				0AF30F6C1734112600C0112B /* bubbles.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

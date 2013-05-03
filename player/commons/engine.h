@@ -9,6 +9,9 @@
 #ifndef __player_commons_engine__
 #define __player_commons_engine__
 
+#define PGL_NOT_USED(x) ((void)(x))
+#define pglAssert(A) assert(A)
+
 namespace player {
     namespace commons {
         class engine {
@@ -16,7 +19,7 @@ namespace player {
             virtual ~engine();
             virtual void initialize(void) = 0;
             virtual void reshape(float width, float height) = 0;
-            virtual void mouse(float x, float y) = 0;
+            virtual void mouse(float x, float y);
             virtual void update(float dt) = 0;
             virtual void draw(void) = 0;
         };

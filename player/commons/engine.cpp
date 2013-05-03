@@ -11,3 +11,9 @@
 player::commons::engine::~engine()
 {
 }
+
+void player::commons::engine::mouse(float x, float y)
+{
+    PGL_NOT_USED(x);
+    PGL_NOT_USED(y);
+}
